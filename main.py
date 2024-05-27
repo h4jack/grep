@@ -12,9 +12,9 @@ def main():
     parser.add_argument("-n", action="store_true", help="Display line numbers.")
     parser.add_argument("-s", action="store_true", help="Strip leading and trailing spaces.")
     parser.add_argument("-e", action="store_true", help="exclude the part/string provided.")
+    parser.add_argument("-v", action="store_true", help="prints the version of the program.")
 
     args = parser.parse_args()
-
     try:
         with open(args.filename, "r") as file:
             for line_no, line in enumerate(file, start=1):
@@ -46,4 +46,7 @@ def main():
         print(f"Error: File '{args.filename}' not found.")
 
 if __name__ == "__main__":
+    if '-v' in sys.argv:
+        print("grep v1.0.0")
+        sys.exit()
     main()

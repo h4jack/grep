@@ -18,6 +18,12 @@ int main(int argc, char* argv[]) {
     int stripWhitespace = 0;  // -s
     int excludeLines = 0;     // -e
 
+    // print the version of the program.
+    if(argv[1][0] == '-' && argv[1][1] == 'v'){
+        printf("grep v1.0.0");
+        exit(0);
+    }
+    
     // Check if the correct number of arguments is provided
     if (argc < 3) {
         printf("Usage: %s <filename> <search_string> [-n] [-s] [-e]\n", argv[0]);
